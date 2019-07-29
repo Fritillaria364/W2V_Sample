@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="ja">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>W2V Sample</title>
+
+ <! -- ここがBootstrapのCDN -->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";; rel="stylesheet">
+ <!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>;;
+ <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>;;
+ <![endif]-->
+</head>
+
+<body>
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <h1>W2V Sample - Calculate Word Vectors</h1>
+   <p>※単語と単語の間には半角スペースをいれてください</p>
+
+   <form method="post">
+    <div class="form-group">
+     <label class="sr-only" for="pos"></label>
+     <div class="input-group">
+      <input id="pos" name="positive" placeholder="Input words for positive" type="text" class="form-control">
+     </div>
+    </div>
+    <div class="form-group">
+     <label class="sr-only" for="neg"></label>
+     <div class="input-group">
+      <input id="neg" name="negative" placeholder="Input words for negative" type="text" class="form-control">
+     </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+   </form>
+
+  </div>
+ </div>
+ <hr>
+ <div class="row">
+  <div class="col-md-12">
+   <h2>Result</h2>
+   <h4>Top3 of Similarity Words</h4>
+
+   <table class="table table-striped">
+     <thead class="thead-light">
+     <tr><th>Positive</th><th>Negative</th></tr>
+     </thead>
+    <tr>
+     {% if pos %}
+      <td>{{ pos }}</td>
+     {% endif %}
+     {% if neg %}
+      <td>{{ neg }}</td>
+     {% endif %}
+    </tr>
+   </table>
+
+   {% if output %}
+    <table class="table table-striped">
+     <thead class="thead-dark">
+      <tr><th>Word</th><th>Simirarity</th></tr>
+     </thead>
+     {% for lst in output %}
+       <tr><td>{{ lst.word }}</td>
+       <td>{{ lst.sim }}</td></tr>
+     {% endfor %}
+    </table>
+   {% endif %}
+  </div>
+ </div>
+
+ <hr>
+ <div class="row">
+  <div class="col-md-12">
+   <h2>History</h2>
+   {% if history %}
+    <table class="table table-striped">
+     <thead>
+     <tr><th>Positive</th><th>Negative</th></tr>
+     </thead>
+     {% for his in history %}
+    <tr><td>{{ his.pos }}</td><td>{{ his.neg }}</td></tr>
+    {% endfor %}
+    </table>
+   {% endif %}
+  </div>
+ </div>
+
+</div>
+
+<! -- ここがBootstrapのCDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js";></script>;
+<! -- ここがBootstrapのCDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js";></script>;
+</body>
+</html>

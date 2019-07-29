@@ -15,7 +15,6 @@ jaconv==0.2.4
 Jinja2==2.10.1
 jmespath==0.9.4
 joblib==0.13.2
-knp-utils==0.42
 MarkupSafe==1.1.1
 mecab-python3==0.996.2
 more-itertools==7.2.0
@@ -23,7 +22,6 @@ numpy==1.17.0
 pandas==0.25.0
 pexpect==4.7.0
 ptyprocess==0.6.0
-pyknp==0.4.1
 python-dateutil==2.8.0
 pytz==2019.1
 requests==2.22.0

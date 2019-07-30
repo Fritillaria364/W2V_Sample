@@ -9,7 +9,7 @@ def get_BS_obj(url):
     return BeautifulSoup(html, "html.parser")
 
 def get_main_text(bs_obj):
-    text_htmls = bs_obj.findAll("div",{"id":"novel_honbun"})[0].findAll("p")
+    text_htmls = bs_obj.findAll("div", {"id":"novel_honbun"})[0].findAll("p")
     text = "".join([ t.get_text() for t in text_htmls ])
     return text
 
@@ -32,7 +32,7 @@ def save_csv(stories, title):
 def main():
     rank_url = "https://yomou.syosetu.com/rank/genrelist/type/quarter_302/"
     rank_bs = get_BS_obj(rank_url)
-    novels = rank_bs.findAll("div",{"class":"ranking_list"})
+    novels = rank_bs.findAll("div", {"class":"ranking_list"})
     novel_ranking = []
 
     for i in range(len(novels)):

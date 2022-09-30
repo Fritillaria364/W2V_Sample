@@ -14,7 +14,7 @@ itsdangerous==1.1.0
 jaconv==0.2.4
 Jinja2==2.10.1
 jmespath==0.9.4
-joblib==0.13.2
+joblib==1.2.0
 MarkupSafe==1.1.1
 mecab-python3==0.996.2
 more-itertools==7.2.0
